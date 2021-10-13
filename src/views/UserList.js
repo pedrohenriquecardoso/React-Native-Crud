@@ -1,8 +1,14 @@
 import React from 'react'
-import {Text} from 'react-native'
+import {Text, StyleSheet} from 'react-native'
 
 export default props => {
     return (
-        <Text>UserList</Text>
+        <Text style={styles.text}>UserList</Text>
     )
 }
+
+const styles = StyleSheet.create({
+    text: {
+      color: 'black',
+    },
+});
