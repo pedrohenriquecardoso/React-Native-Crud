@@ -24,7 +24,7 @@ export default props => {
             <ListItem.Swipeable 
                 leftContent={
                     <Button
-                        onPress={()=> props.navigation.navigate('UserForm')}
+                        onPress={()=> props.navigation.navigate('UserForm', user)}
                         title="edit"
                         icon={{ name: 'edit', color: 'orange' }}
                         buttonStyle={{ minHeight: '100%' }}
