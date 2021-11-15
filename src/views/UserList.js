@@ -1,10 +1,24 @@
 import { getActionFromState } from '@react-navigation/core'
 import React from 'react'
-import {Text, StyleSheet, FlatList, View} from 'react-native'
+import {Text, StyleSheet, FlatList, View, Alert} from 'react-native'
 import { ListItem, Avatar, Button, Icon } from 'react-native-elements'
 import users from '../data/users'
 
 export default props => {
+    function confirmUserDeletion(user){
+        Alert.alert('Delete User', 'Do you want delete this user?', [
+            {
+                text: 'Sim',
+                onPress(){
+                    console.warn('delete ', + user.id)
+                }
+            },
+            {
+                text: 'Não'
+            },
+        ])
+    }
+    
     function getUserItem({item: user}){
         return (
             <ListItem.Swipeable 
@@ -18,6 +32,7 @@ export default props => {
                 }
                 rightContent={
                     <Button
+                        onPress={() => confirmUserDeletion(user)}
                         title="Delete"
                         icon={{ name: 'delete', color: 'white' }}
                         buttonStyle={{ minHeight: '100%', backgroundColor: 'red' }}
